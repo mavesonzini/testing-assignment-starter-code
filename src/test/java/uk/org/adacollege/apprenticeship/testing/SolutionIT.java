@@ -22,9 +22,9 @@ public class SolutionIT {
     private static String logInMenuId = "log-in-menu";
     private static String emailInputId = "email";
     private static String passwordInputId = "password";
-    private static String validEmail = "TODO";
+    private static String validEmail = "mariaveronica.sonzini@adacollege.org.uk";
     private static String invalidEmail = validEmail + ".nothing";
-    private static String validPassword = "TODO";
+    private static String validPassword = "whipit";
     private static String invalidPassword = validPassword + "-invalid";
     private static String logInButtonId = "login-button";
     private static String logOutButtonId = "log-out-button";
