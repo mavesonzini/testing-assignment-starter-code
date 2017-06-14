@@ -120,6 +120,11 @@ public class SolutionIT {
         assertTrue(result);
     }
 
+    private static void clickElement(String expectedElement){
+      wait.until(presenceOfElementLocated(By.id(expectedElement)));
+      driver.findElement(By.id(expectedElement)).click();
+    }
+
     // ========= SCAFFOLDING =========
 
     @BeforeClass
@@ -170,7 +175,10 @@ public class SolutionIT {
     // Step 3
     @Test
     public void notLoggedIn_clickAboutMenu() {
-
+        clickElement(aboutMenuId);
+        assertUrlEquals("http://whipbird.mattcalthrop.com/#!/about");
+        assertTitleEquals("whipbird: about");
+        assertElementTextEquals(By.tagName("h4"), "About this app");
     }
 
     // Step 4
