@@ -1,5 +1,6 @@
 package uk.org.adacollege.apprenticeship.testing;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.*;
@@ -153,25 +154,29 @@ public class SolutionIT {
     public void notLoggedIn_checkMenus() {
         assertElementPresent(logInMenuId);
         assertElementNotPresent(logOutMenuId);
-        // TODO: complete for all other menus
+        assertElementPresent(aboutMenuId);
+        assertElementNotPresent(myWhipbirdsMenuId);
     }
 
     // Step 2
     @Test
     public void notLoggedIn_checkCurrentPage() {
-        // TODO
+        assertUrlEquals("http://whipbird.mattcalthrop.com/#!/login");
+        assertTitleEquals("whipbird: log in");
+        assertElementTextEquals(By.tagName("h4"), "Log in");
+        assertElementTextEquals(By.id("footer-right"), "");
     }
 
     // Step 3
     @Test
     public void notLoggedIn_clickAboutMenu() {
-        // TODO
+
     }
 
     // Step 4
     @Test
     public void notLoggedIn_logInWithIncorrectCredentials() {
-        // TODO
+
     }
 
     // --------- WHEN LOGGED IN ---------
@@ -180,7 +185,6 @@ public class SolutionIT {
     @Test
     public void loggedIn_checkMenus() {
         logIn(true);
-        // TODO
     }
 
     // Step 6
