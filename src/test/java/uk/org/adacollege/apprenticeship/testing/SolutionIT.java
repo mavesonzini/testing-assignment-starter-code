@@ -100,18 +100,23 @@ public class SolutionIT {
     }
 
     private static void assertUrlEquals(String expectedUrl) {
-        // TODO: implement this method
-        // - use assertTitleEquals() as an example pattern to follow
-        // - search the web for how to find the current URL with Selenium
+        Boolean result = wait.until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver webDriver) {
+                return driver.getCurrentUrl().equals(expectedUrl);
+            }
+        });
+        assertTrue(result);
     }
 
     private static void assertElementTextEquals(By selector, String expectedText) {
-        // TODO: implement this method
-        // - use assertTitleEquals() as an example pattern to follow
-        // - but instead of return driver.getTitle().equals(expectedTitle)
-        //   call driver.findElement() with the selector provided
-        //   and then get the text from that element
-        //   and then check that it equals the expected text
+        Boolean result = wait.until(new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver webDriver) {
+                return driver.findElement(selector).getText().equals(expectedText);
+            }
+        });
+        assertTrue(result);
     }
 
     // ========= SCAFFOLDING =========
