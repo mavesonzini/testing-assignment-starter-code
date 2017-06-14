@@ -30,6 +30,11 @@ public class SolutionIT {
     private static String logInButtonId = "login-button";
     private static String logOutButtonId = "log-out-button";
     private static String popupMessageId = "popup-message";
+    private static String nameId = "name";
+    private static String ageId = "age";
+    private static String addWhipbirdButtonId = "add-new-whipbird-button";
+    private static String whipBirdNameTag = "whipbird-name-2";
+    private static String whipbirdAgeTag = "whipbird-age-2";
 
     // ========= UTILITY METHODS =========
 
@@ -125,6 +130,13 @@ public class SolutionIT {
       driver.findElement(By.id(expectedElement)).click();
     }
 
+    private static void  deleteBirds(){
+        int numberOfBirds = driver.findElements(By.id("delete-whipbird-button-0")).size();
+        while (numberOfBirds > 0) {
+            clickElement("delete-whipbird-button-0");
+            numberOfBirds = driver.findElements(By.id("delete-whipbird-button-0")).size();
+        }
+    }
     // ========= SCAFFOLDING =========
 
     @BeforeClass
@@ -176,6 +188,7 @@ public class SolutionIT {
     @Test
     public void notLoggedIn_clickAboutMenu() {
         clickElement(aboutMenuId);
+        wait.until(presenceOfElementLocated(By.id(aboutMenuId)));
         assertUrlEquals("http://whipbird.mattcalthrop.com/#!/about");
         assertTitleEquals("whipbird: about");
         assertElementTextEquals(By.tagName("h4"), "About this app");
@@ -230,7 +243,13 @@ public class SolutionIT {
     // Step 8
     @Test
     public void loggedIn_addNewWhipbird() {
-
+        logIn(true);
+        deleteBirds();
+        wait.until(presenceOfElementLocated(By.id(nameId)));
+        driver.findElement(By.id(nameId)).sendKeys("Pippa");
+        wait.until(presenceOfElementLocated(By.id(ageId)));
+        driver.findElement(By.id(ageId)).sendKeys("76");
+        clickElement(addWhipbirdButtonId);
     }
 
     // Step 9
