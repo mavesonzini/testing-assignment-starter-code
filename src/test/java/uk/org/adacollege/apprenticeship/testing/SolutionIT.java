@@ -163,92 +163,92 @@ public class SolutionIT {
     // ========= TESTS =========
 
     // --------- WHEN NOT LOGGED IN ---------
-//
-//    // Step 1
-//    @Test
-//    public void notLoggedIn_checkMenus() {
-//        assertElementPresent(logInMenuId);
-//        assertElementNotPresent(logOutMenuId);
-//        assertElementPresent(aboutMenuId);
-//        assertElementNotPresent(myWhipbirdsMenuId);
-//    }
-//
-//    // Step 2
-//    @Test
-//    public void notLoggedIn_checkCurrentPage() {
-//        assertUrlEquals("http://whipbird.mattcalthrop.com/#!/login");
-//        assertTitleEquals("whipbird: log in");
-//        assertElementTextEquals(By.tagName("h4"), "Log in");
-//        assertElementTextEquals(By.id("footer-right"), "");
-//    }
-//
-//    // Step 3
-//    @Test
-//    public void notLoggedIn_clickAboutMenu() {
-//        clickElement(aboutMenuId);
-//        wait.until(presenceOfElementLocated(By.id(aboutMenuId)));
-//        assertUrlEquals("http://whipbird.mattcalthrop.com/#!/about");
-//        assertTitleEquals("whipbird: about");
-//        assertElementTextEquals(By.tagName("h4"), "About this app");
-//    }
-//
-//    // Step 4
-//    @Test
-//    public void notLoggedIn_logInWithIncorrectCredentials() {
-//        logIn(false);
-//        assertElementPresent(logInMenuId);
-//        assertElementNotPresent(logOutMenuId);
-//        assertElementPresent(aboutMenuId);
-//        assertElementNotPresent(myWhipbirdsMenuId);
-//        assertUrlEquals("http://whipbird.mattcalthrop.com/#!/login");
-//        assertTitleEquals("whipbird: log in");
-//        assertElementTextEquals(By.id(popupMessageId), "Username or password incorrect");
-//    }
-//
-//    // --------- WHEN LOGGED IN ---------
-//
-//    // Step 5
-//    @Test
-//    public void loggedIn_checkMenus() {
-//        logIn(true);
-//        assertElementNotPresent(logInMenuId);
-//        assertElementPresent(logOutMenuId);
-//        assertElementPresent(myWhipbirdsMenuId);
-//        assertElementPresent(aboutMenuId);
-//    }
-//
-//    // Step 6
-//    @Test
-//    public void loggedIn_checkCurrentPage() {
-//        logIn(true);
-//        assertUrlEquals("http://whipbird.mattcalthrop.com/#!/my-whipbirds");
-//        assertTitleEquals("whipbird: my whipbirds");
-//        assertElementTextEquals(By.tagName("h4"), "Current whipbirds for Veronica Sonzini");
-//        assertElementTextEquals(By.id("footer-right"), "Veronica Sonzini");
-//    }
-//
-//    // Step 7
-//    @Test
-//    public void loggedIn_clickLogOutMenu() {
-//        logIn(true);
-//        wait.until(presenceOfElementLocated(By.id(logOutMenuId)));
-//        clickElement(logOutMenuId);
-//        assertUrlEquals("http://whipbird.mattcalthrop.com/#!/logout");
-//        assertTitleEquals("whipbird: log out");
-//        assertElementTextEquals(By.tagName("h4"), "Log out");
-//    }
-//
-//    // Step 8
-//    @Test
-//    public void loggedIn_addNewWhipbird() {
-//        logIn(true);
-//        deleteBirds();
-//        wait.until(presenceOfElementLocated(By.id(nameTagId)));
-//        driver.findElement(By.id(nameTagId)).sendKeys("Pippa");
-//        wait.until(presenceOfElementLocated(By.id(ageTagId)));
-//        driver.findElement(By.id(ageTagId)).sendKeys("76");
-//        clickElement(addWhipbirdButtonId);
-//    }
+
+    // Step 1
+    @Test
+    public void notLoggedIn_checkMenus() {
+        assertElementPresent(logInMenuId);
+        assertElementNotPresent(logOutMenuId);
+        assertElementPresent(aboutMenuId);
+        assertElementNotPresent(myWhipbirdsMenuId);
+    }
+
+    // Step 2
+    @Test
+    public void notLoggedIn_checkCurrentPage() {
+        assertUrlEquals("http://whipbird.mattcalthrop.com/#!/login");
+        assertTitleEquals("whipbird: log in");
+        assertElementTextEquals(By.tagName("h4"), "Log in");
+        assertElementTextEquals(By.id("footer-right"), "");
+    }
+
+    // Step 3
+    @Test
+    public void notLoggedIn_clickAboutMenu() {
+        clickElement(aboutMenuId);
+        wait.until(presenceOfElementLocated(By.id(aboutMenuId)));
+        assertUrlEquals("http://whipbird.mattcalthrop.com/#!/about");
+        assertTitleEquals("whipbird: about");
+        assertElementTextEquals(By.tagName("h4"), "About this app");
+    }
+
+    // Step 4
+    @Test
+    public void notLoggedIn_logInWithIncorrectCredentials() {
+        logIn(false);
+        assertElementPresent(logInMenuId);
+        assertElementNotPresent(logOutMenuId);
+        assertElementPresent(aboutMenuId);
+        assertElementNotPresent(myWhipbirdsMenuId);
+        assertUrlEquals("http://whipbird.mattcalthrop.com/#!/login");
+        assertTitleEquals("whipbird: log in");
+        assertElementTextEquals(By.id(popupMessageId), "Username or password incorrect");
+    }
+
+    // --------- WHEN LOGGED IN ---------
+
+    // Step 5
+    @Test
+    public void loggedIn_checkMenus() {
+        logIn(true);
+        assertElementNotPresent(logInMenuId);
+        assertElementPresent(logOutMenuId);
+        assertElementPresent(myWhipbirdsMenuId);
+        assertElementPresent(aboutMenuId);
+    }
+
+    // Step 6
+    @Test
+    public void loggedIn_checkCurrentPage() {
+        logIn(true);
+        assertUrlEquals("http://whipbird.mattcalthrop.com/#!/my-whipbirds");
+        assertTitleEquals("whipbird: my whipbirds");
+        assertElementTextEquals(By.tagName("h4"), "Current whipbirds for Veronica Sonzini");
+        assertElementTextEquals(By.id("footer-right"), "Veronica Sonzini");
+    }
+
+    // Step 7
+    @Test
+    public void loggedIn_clickLogOutMenu() {
+        logIn(true);
+        wait.until(presenceOfElementLocated(By.id(logOutMenuId)));
+        clickElement(logOutMenuId);
+        assertUrlEquals("http://whipbird.mattcalthrop.com/#!/logout");
+        assertTitleEquals("whipbird: log out");
+        assertElementTextEquals(By.tagName("h4"), "Log out");
+    }
+
+    // Step 8
+    @Test
+    public void loggedIn_addNewWhipbird() {
+        logIn(true);
+        deleteBirds();
+        wait.until(presenceOfElementLocated(By.id(nameTagId)));
+        driver.findElement(By.id(nameTagId)).sendKeys("Pippa");
+        wait.until(presenceOfElementLocated(By.id(ageTagId)));
+        driver.findElement(By.id(ageTagId)).sendKeys("76");
+        clickElement(addWhipbirdButtonId);
+    }
 
     // Step 9
     @Test
@@ -271,6 +271,6 @@ public class SolutionIT {
 
         wait.until(presenceOfElementLocated(By.id(popupMessageId)));
         assertElementTextEquals(By.id(popupMessageId), "Whipbird deleted: Pippa");
-        
+
     }
 }
