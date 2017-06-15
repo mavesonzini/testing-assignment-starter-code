@@ -123,17 +123,16 @@ public class SolutionIT {
         assertTrue(result);
     }
 
-    private static void clickElement(String expectedElement){
-      wait.until(presenceOfElementLocated(By.id(expectedElement)));
-      driver.findElement(By.id(expectedElement)).click();
+    private static void clickElement(String expectedElement) {
+        wait.until(presenceOfElementLocated(By.id(expectedElement)));
+        driver.findElement(By.id(expectedElement)).click();
     }
 
-    private static void  deleteBirds(){
+    private static void deleteBirds() {
         int numberOfBirds = driver.findElements(By.id("delete-whipbird-button-0")).size();
-        while (numberOfBirds > 0) {
+        while (numberOfBirds > 0){
             clickElement("delete-whipbird-button-0");
-            numberOfBirds = driver.findElements(By.id("delete-whipbird-button-0")).size();
-        }
+            numberOfBirds = driver.findElements(By.id("delete-whipbird-button-0")).size();        }
     }
     // ========= SCAFFOLDING =========
 
@@ -221,6 +220,7 @@ public class SolutionIT {
     @Test
     public void loggedIn_checkCurrentPage() {
         logIn(true);
+
         assertUrlEquals("http://whipbird.mattcalthrop.com/#!/my-whipbirds");
         assertTitleEquals("whipbird: my whipbirds");
         assertElementTextEquals(By.tagName("h4"), "Current whipbirds for Veronica Sonzini");
@@ -231,8 +231,10 @@ public class SolutionIT {
     @Test
     public void loggedIn_clickLogOutMenu() {
         logIn(true);
+
         wait.until(presenceOfElementLocated(By.id(logOutMenuId)));
         clickElement(logOutMenuId);
+
         assertUrlEquals("http://whipbird.mattcalthrop.com/#!/logout");
         assertTitleEquals("whipbird: log out");
         assertElementTextEquals(By.tagName("h4"), "Log out");
